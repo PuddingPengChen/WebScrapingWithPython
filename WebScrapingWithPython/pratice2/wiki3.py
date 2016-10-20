@@ -3,7 +3,7 @@
 # @Author: anchen
 # @Date:   2016-09-11 22:05:58
 # @Last Modified by:   anchen
-# @Last Modified time: 2016-09-12 16:54:18
+# @Last Modified time: 2016-09-12 21:37:29
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -14,7 +14,6 @@ pages = set()
 def getLinks(articleUrl):
     global pages
     html = urlopen("http://en.wikipedia.org"+articleUrl)
-    print(html)
     bsObj = BeautifulSoup(html)
     for link in bsObj.findAll("a",href=re.compile("^(/wiki/)")):
         if 'href' in link.attrs:
